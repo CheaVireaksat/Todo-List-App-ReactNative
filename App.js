@@ -1,6 +1,7 @@
 //import staff
 import React from 'react';
-import { View, Text, TextInput, Button, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { Button } from 'native-base';
 
 //create staff
 class App extends React.Component {
@@ -41,11 +42,18 @@ class App extends React.Component {
           onChangeText={(text) => this.setState({ text })}
           value={this.state.text}
         />
-        <Button
+        {/* <Button
           title="Add Todo"
           color="green"
           onPress={this.addTodo}
-        />
+        /> */}
+        <Button
+          block={true}
+          style={styles.ButtonStyle}
+          onPress={this.addTodo}
+        >
+          <Text style={styles.ButtonText}>Add Todo</Text>
+        </Button>
         <View style={{ marginTop: 30 }} />
         {this.renderTodos()}
       </View>
@@ -61,6 +69,7 @@ const styles = {
     margin: 20,
   },
   inputStyle: {
+    margin: 20,
     height: 30,
     borderColor: 'green',
     borderWidth: 1,
@@ -74,6 +83,13 @@ const styles = {
     fontSize: 15,
     color: 'black',
   },
+  ButtonText: {
+    color: 'white',
+    fontSize: 15,
+  },
+  ButtonStyle: {
+    margin: 30,
+  }
 }
 
 //export staff
